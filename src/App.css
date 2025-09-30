@@ -1,0 +1,98 @@
+@import "tailwindcss";
+/* body {
+  font-family: "Scheherazade New", serif;
+  direction: rtl;
+  text-align: right;
+} */
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Arial", sans-serif;
+  direction: rtl; 
+  text-align: right;
+} */
+
+:root {
+  --color-primary: #3e582b;
+  --color-secondary: #e7f0dc;
+  --color-bg: #f6f6f6;
+  --color-text: #222222;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Scheherazade New", serif;
+  direction: rtl; /* للغة العربية */
+  text-align: right;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* Utilities */
+.text-primary {
+  color: var(--color-primary);
+}
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-neutral {
+  background-color: var(--color-bg);
+}
+.text-neutral {
+  color: var(--color-text);
+}
+input::placeholder {
+  font-family: "Scheherazade New", serif;
+  color: var(--color-text);
+}
+a {
+  font-family: "Scheherazade New", sans-serif !important;
+  font-style: regular !important;
+}
+
+/* #animatedBtn::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+} */
+#borderBn {
+  z-index: -1 !important;
+  transform: all 0.3s ease;
+}
+.btn-animated:hover #borderBn {
+  top: 0;
+  bottom: 0;
+}
+/* .borderBn {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+} */
