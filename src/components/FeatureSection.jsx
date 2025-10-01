@@ -1,36 +1,128 @@
-import React from "react";
+import React, { useState } from "react";
+
+const tabs = [
+  { label: "ماسكــــــــــــــــارا", img: "/images/Group 1618873608.png" },
+  { label: "كريم أســـــــــــاس", img: "/images/Property 1=Variant2.png" },
+  { label: "حمرة شفــــــــــاه", img: "/images/rouge.png" },
+  { label: "حمرة خدود", img: "/images/Property 1=Default.png" },
+  { label: "أيشــــــــــــــــادو", img: "/images/shadow.png" },
+];
 
 function FeatureSection() {
+  const [activeTab, setActiveTab] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  const changeTab = (idx) => {
+    if (idx === activeTab) return;
+    setFade(false);
+    setTimeout(() => {
+      setActiveTab(idx);
+      setFade(true);
+    }, 200);
+  };
+
+  // مناطق الضغط فوق الأسهم داخل الصورة
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    changeTab((activeTab - 1 + tabs.length) % tabs.length);
+  };
+  const handleNext = (e) => {
+    e.stopPropagation();
+    changeTab((activeTab + 1) % tabs.length);
+  };
+
   return (
-    <section className="w-full bg-[#e7f0dc]" dir="rtl">
-      <div className="max-w-[1200px] mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        <div className="order-2 lg:order-1">
-          <p className="text-center lg:text-right text-gray-800 mb-2">افضل الأقسام</p>
-          <h3 className="text-center lg:text-right text-2xl md:text-3xl font-bold mb-6">استكشف مجموعة متنوعة من الأقسام المتاحة</h3>
-          <div className="hidden lg:block border-b border-green-900 w-24 mb-8"></div>
-          <div className="relative bg-white/0 rounded-xl p-4 text-center lg:text-right">
-            <div className="relative mx-auto w-[420px] max-w-full">
-              <img src="/images/Group 5.png" alt="mascara" className="w-full h-auto" />
-            </div>
-            <div className="mt-4 text-gray-700">
-              <div className="text-sm">المكياج</div>
-              <div className="font-semibold">ماسكارا الورا مضادة للمياه</div>
-              <div className="text-sm text-gray-500"><span className="line-through">رس 180</span> <span className="text-red-600">رس 140</span></div>
+    <section
+      className="w-full overflow-hidden relative min-h-[60vh] bg-[#E7F0DC] "
+      dir="rtl"
+    >
+      <img
+        className="absolute top-0 left-0 hidden lg:block"
+        src="/images/tree.png"
+        alt=""
+      />
+      <img
+        className="absolute bottom-0 left-0  lg:hidden"
+        src="/images/tree.png"
+        alt=""
+      />
+      <img
+        className="absolute top-[-250px] right-[0px] rotate-[180deg] "
+        src="/images/tree.png"
+        alt=""
+      />
+      <div className="max-w-[1200px] mx-auto px-2 sm:px-4 py-4 sm:py-10">
+        <p className="text-center text-[18px] sm:text-[20px] font-[Scheherazade_New] text-[#202020]">
+          افضـــــل الاقســـــــام
+        </p>
+        <h3 className="text-center font-[Scheherazade_New] border-b border-[#597445] w-fit mx-auto py-2 text-[#202020] text-[22px] sm:text-[28px] font-bold mb-6">
+          استكشف مجموعة متنوعة من الأقسام المتاحة
+        </h3>
+        <div className="products flex flex-col-reverse lg:flex-row justify-between items-center gap-8">
+          <div className="products-tabs w-full lg:w-auto">
+            <ul className="flex flex-col lg:flex-col gap-2 lg:mb-[150px] mb-0  justify-center">
+              {tabs.map((tab, idx) => (
+                <li
+                  key={tab.label}
+                  className={`text-[24px] p-3 md:p-0 sm:text-[24px] lg:text-[32px]  sm:mt-5 font-bold font-[Scheherazade_New] cursor-pointer transition-colors duration-200 ${
+                    activeTab === idx
+                      ? "text-[#202020]"
+                      : "text-[#202020] opacity-60"
+                  }`}
+                  onClick={() => changeTab(idx)}
+                >
+                  <span
+                    className={`pb-1 ${
+                      activeTab === idx
+                        ? "border-b-4 border-[#202020]"
+                        : "border-b-0"
+                    }`}
+                  >
+                    {tab.label}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="product-img flex items-center relative w-full lg:w-[60%] justify-center mb-6 lg:mb-0">
+            <div className="relative w-[90vw] max-w-[400px] sm:max-w-[500px] md:max-w-[600px] aspect-square flex items-center justify-center">
+              {/* صورة المنتج */}
+              <img
+                className={`mx-auto w-full h-full object-contain transition-all duration-300 ${
+                  fade ? "opacity-100" : "opacity-0"
+                }`}
+                src={tabs[activeTab].img}
+                alt={tabs[activeTab].label}
+                style={{ transition: "opacity 0.2s" }}
+              />
+              {/* منطقة ضغط فوق السهم اليمين */}
+              <div
+                onClick={handlePrev}
+                className="absolute right-0 top-0 h-full"
+                style={{
+                  width: "20%",
+                  cursor: "pointer",
+                  zIndex: 10,
+                }}
+                aria-label="السابق"
+              />
+              {/* منطقة ضغط فوق السهم الشمال */}
+              <div
+                onClick={handleNext}
+                className="absolute left-0 top-0 h-full"
+                style={{
+                  width: "20%",
+                  cursor: "pointer",
+                  zIndex: 10,
+                }}
+                aria-label="التالي"
+              />
             </div>
           </div>
-        </div>
-        <div className="order-1 lg:order-2 flex flex-col items-start lg:items-start gap-8">
-          <h4 className="text-3xl font-bold">ماسكارا</h4>
-          <ul className="space-y-6 text-2xl text-gray-700">
-            <li className="border-b pb-2 w-fit">كريم أساس</li>
-            <li className="border-b pb-2 w-fit">حمرة شفاه</li>
-            <li className="border-b pb-2 w-fit">حمرة خدود</li>
-            <li className="border-b pb-2 w-fit">أيشادو</li>
-          </ul>
         </div>
       </div>
     </section>
   );
 }
 
-export default FeatureSection; 
+export default FeatureSection;

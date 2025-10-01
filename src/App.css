@@ -65,6 +65,12 @@ a {
   font-style: regular !important;
 }
 
+/* #categoryCard:hover .overlay {
+  background-color: var(--color-secondary) !important;
+}
+#categoryCard > img:hover .overlay {
+  background-color: var(--color-secondary) !important;
+} */
 /* #animatedBtn::after {
   content: "";
   position: absolute;
@@ -77,14 +83,15 @@ a {
   opacity: 0;
   transition: opacity 0.3s ease;
 } */
-#borderBn {
+/* #borderBn {
   z-index: -1 !important;
   transform: all 0.3s ease;
 }
 .btn-animated:hover #borderBn {
   top: 0;
   bottom: 0;
-}
+} */
+
 /* .borderBn {
   position: absolute;
   top: -10px;

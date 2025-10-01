@@ -8,17 +8,22 @@ import FeatureSection from "./components/FeatureSection";
 import InstagramBanner from "./components/InstagramBanner";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
+import HeroSection from "./components/HeroSection";
 
 function App() {
   return (
-    <div className="min-h-screen font-['Scheherazade New',serif] bg-[#f6f6f6] text-[#222]" dir="rtl">
+    <div
+      className="min-h-screen overflow-x-hidden  font-[Scheherazade_New] bg-white text-[#222]"
+      dir="rtl"
+    >
       <Header />
-      <Hero />
+      <HeroSection />
+      {/* <Hero /> */}
       <BrandsStrip />
       <Categories />
       <ProductsGrid />
       <FeatureSection />
-      <InstagramBanner />
+      {/* <InstagramBanner /> */}
       <Newsletter />
       <Footer />
     </div>
