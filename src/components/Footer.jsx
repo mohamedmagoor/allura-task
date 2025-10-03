@@ -21,7 +21,7 @@ function Footer() {
           <p className="text-[24px] flex items-center font-[Scheherazade_New]">
             الاشتراك في النشرة البريدية
           </p>
-          {/* input مع زر الإرسال بداخله */}
+
           <div className="gmailus w-fit flex items-center relative">
             <input
               type="text"
@@ -35,8 +35,8 @@ function Footer() {
               <Send size={16} />
             </button>
           </div>
-          <div className="flex gap-2 sm:gap-4">
-            <div className="callus border-[#20202012] border-1 p-2 flex justify-center items-center gap-4  bg-[#20202012]">
+          <div className="flex gap-1 sm:gap-4">
+            <div className="callus border-[#20202012]  border-1 p-2 flex justify-center items-center gap-4  bg-[#20202012]">
               <div className="icon flex items-center justify-center bg-[#202020] w-12 h-12 rounded-full ">
                 <PhoneCall className="text-white" />
               </div>
@@ -66,7 +66,6 @@ function Footer() {
         </div>
         {/* بداية secRow */}
         <div className="secRow border-b z-[999]  border-[#00000030] grid grid-cols-1 md:grid-cols-5 gap-1 md:py-8 items-stretch text-center md:text-right">
-          {/* شعار منصة العملاء */}
           <div className="flex flex-col md:border-b-0 border-b border-[#00000030] flex-start md:items-start gap-2  md:border-l md:border-[#00000030] p-5 h-full">
             <img
               src="/images/Group 5.svg"

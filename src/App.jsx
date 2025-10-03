@@ -18,12 +18,12 @@ function App() {
     >
       <Header />
       <HeroSection />
-      {/* <Hero /> */}
+
       <BrandsStrip />
       <Categories />
       <ProductsGrid />
       <FeatureSection />
-      {/* <InstagramBanner /> */}
+
       <Newsletter />
       <Footer />
     </div>

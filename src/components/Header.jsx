@@ -36,7 +36,6 @@ function Header() {
             </div>
           </div>
 
-          {/* Cart Icon */}
           <button className="relative p-2 hover:bg-gray-100 rounded-lg transition-colors">
             <ShoppingCartIcon />
             <span className="absolute -top-0 -right-0 bg-black text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-medium">

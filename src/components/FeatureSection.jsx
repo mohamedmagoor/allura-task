@@ -21,7 +21,6 @@ function FeatureSection() {
     }, 200);
   };
 
-  // مناطق الضغط فوق الأسهم داخل الصورة
   const handlePrev = (e) => {
     e.stopPropagation();
     changeTab((activeTab - 1 + tabs.length) % tabs.length);
@@ -86,7 +85,6 @@ function FeatureSection() {
           </div>
           <div className="product-img flex items-center relative w-full lg:w-[60%] justify-center mb-6 lg:mb-0">
             <div className="relative w-[90vw] max-w-[400px] sm:max-w-[500px] md:max-w-[600px] aspect-square flex items-center justify-center">
-              {/* صورة المنتج */}
               <img
                 className={`mx-auto w-full h-full object-contain transition-all duration-300 ${
                   fade ? "opacity-100" : "opacity-0"
@@ -95,7 +93,7 @@ function FeatureSection() {
                 alt={tabs[activeTab].label}
                 style={{ transition: "opacity 0.2s" }}
               />
-              {/* منطقة ضغط فوق السهم اليمين */}
+
               <div
                 onClick={handlePrev}
                 className="absolute right-0 top-0 h-full"
@@ -106,7 +104,7 @@ function FeatureSection() {
                 }}
                 aria-label="السابق"
               />
-              {/* منطقة ضغط فوق السهم الشمال */}
+
               <div
                 onClick={handleNext}
                 className="absolute left-0 top-0 h-full"
